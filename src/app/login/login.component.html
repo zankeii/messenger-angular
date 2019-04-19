@@ -2,8 +2,26 @@
   <div class="container">
     <div class="row justify-content-md-center">
       <div class="col-md-3">
-        <div class="avatarFrameOffline">
+        <div class="avatarFrameOffline marto15 marbo15">
           <img src="assets/img/generic_avatar.png" class="avatarImage img-fluid">
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-md-center">
+      <div class="col-md-6">
+        <div class="center">
+          <h3>Login</h3>
+        </div>
+        <p *ngIf="operation == 'register'">Have you already have an account? <a (click)="operation = 'login'">Login</a></p>
+        <p *ngIf="operation == 'login'">Don't you have an account? <a (click)="operation = 'register'">Sign up</a></p>
+        <div class="borderedContainer">
+          <input class="form-control marbo15" type="email" placeholder="Email">
+          <input class="form-control marbo15" type="password" placeholder="Password">
+          <input *ngIf="operation == 'register'" class="form-control marbo15" type="text" placeholder="Nick">
+        </div>
+        <div class="center marto15">
+          <a *ngIf="operation == 'login'" class="btn btn-primary">Login</a>
+          <a *ngIf="operation == 'register'" class="btn btn-primary">Sign up</a>
         </div>
       </div>
     </div>
