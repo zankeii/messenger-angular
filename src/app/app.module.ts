@@ -9,6 +9,7 @@ import {ConversationComponent} from './conversation/conversation.component';
 import {ProfileComponent} from './profile/profile.component';
 import {Router, RouterModule, Routes} from "@angular/router";
 import { MenuComponent } from './menu/menu.component';
+import {FormsModule} from "@angular/forms";
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -30,7 +31,8 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
