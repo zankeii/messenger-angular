@@ -1,3 +1,45 @@
-<p>
-  {{friend | json}}
-</p>
+<div id="conversationContainer">
+  <div class="container pato45">
+    <div class="d-flex flew-row">
+      <div class="col-md-3 d-flex flex-column">
+        <div class="avatarFrameOnline">
+          <img src="assets/img/generic_avatar.png" class="avatarImage img-fluid" alt="Avatar">
+        </div>
+        <hr />
+      </div>
+      <div class="col-md-9 d-flex flex-column">
+        <div>
+          <div>
+            <span class="friend-nick">{{ friend.nick }}</span> - <span class="friend-status">({{ friend.status }})</span>
+          </div>
+          <div>
+            <span class="friend-subnick">{{ friend.subnick }}</span>
+          </div>
+          <hr />
+          <div>
+            <span class="chat-nick">{{ friend.nick }}: </span><span>Hola!</span>
+          </div> 
+          <div class="send">
+            <span class="chat-nick">Jose: </span><span>Hola! Como estas?</span>
+          </div>
+        </div>
+      </div>
+  </div>
+
+  <div class="d-flex flew-row">
+      <div class="col-md-3 d-flex flex-column">
+        <div class="avatarFrameOnline">
+          <img src="assets/img/generic_avatar.png" class="avatarImage img-fluid" alt="Avatar">
+        </div>
+      </div>
+      <div class="col-md-9 d-flex flex-column" id="chat-col">
+        <div class="caja-text">
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+        </div>
+        <div class="chat-button d-flex justify-content-end align-items-center">
+            <a class="btn btn-outline-primary">Enviar</a>
+        </div>
+      </div>
+    </div>
+</div>
+</div>
