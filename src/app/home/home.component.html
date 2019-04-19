@@ -9,9 +9,11 @@
 </ng-container>
 <b>No agregados</b>
 <ng-container *ngFor="let user of friends; let i = index">
-  <p *ngIf="!user.friend">
-    {{i}}. {{user.nick}} - {{user.email}}
-  </p>
+  <div *ngIf="!user.friend">
+    <a>
+      {{i}}. {{user.nick}} - {{user.email}}
+    </a>
+  </div>
 </ng-container>
 
 
