@@ -10,6 +10,7 @@ import {ProfileComponent} from './profile/profile.component';
 import {Router, RouterModule, Routes} from "@angular/router";
 import { MenuComponent } from './menu/menu.component';
 import {FormsModule} from "@angular/forms";
+import { SearchPipe } from './pipes/search.pipe';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -26,7 +27,8 @@ const appRoutes: Routes = [
     HomeComponent,
     ConversationComponent,
     ProfileComponent,
-    MenuComponent
+    MenuComponent,
+    SearchPipe
   ],
   imports: [
     BrowserModule,
