@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {AngularFireAuth} from '@angular/fire/auth';
+import * as firebase from 'firebase';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ export class AuthenticationService {
   }
 
   loginWithFacebook() {
-    let provider = new firebase.auth.FacebookAuthProvider();
+    const provider = new firebase.auth.FacebookAuthProvider();
     return this.angularFireAuth.auth.signInWithPopup(provider);
   }
 
