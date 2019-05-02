@@ -9,7 +9,7 @@ export class AuthenticationService {
   constructor(private angularFireAuth: AngularFireAuth) {
   }
 
-  loginWithFacebook(){
+  loginWithFacebook() {
     let provider = new firebase.auth.FacebookAuthProvider();
     return this.angularFireAuth.auth.signInWithPopup(provider);
   }
@@ -26,7 +26,7 @@ export class AuthenticationService {
     return this.angularFireAuth.authState;
   }
 
-  logOut(){
+  logOut() {
     return this.angularFireAuth.auth.signOut();
   }
 }
