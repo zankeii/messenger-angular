@@ -33,9 +33,16 @@
 .areaChat{
 	height:100px;
 }
+.marto{
+  margin-top: -15px;
+}
 
 .exampleChat {
 	font-family: 'San-serif'
+}
+.exampleChat2 {
+  font-family: 'San-serif';
+  text-align: right;
 }
 
 .iconImage{
@@ -48,4 +55,9 @@ img .logoPers {
 }
 .icon{
 	margin-right:  10px;
+}
+.miniAvatar{
+  max-width: 32px;
+  border-radius: 15px;
+  border: 2px solid greenyellow;
 }
