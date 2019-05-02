@@ -28,6 +28,12 @@
           <a (click)="login()" *ngIf="operation =='login'" class="btn btn-primary">Login</a>
           <a (click)="register()" *ngIf="operation =='register'" class="btn btn-primary">Sign Up</a>
         </div>
+        <hr>
+        <div class="center marto15">
+          <button (click)="loginWithFacebok()" class="loginBtn loginBtn--facebook">
+            Login with Facebook
+          </button>
+        </div>
       </div>
     </div>
   </div>

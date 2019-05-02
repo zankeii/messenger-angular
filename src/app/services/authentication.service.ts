@@ -9,6 +9,11 @@ export class AuthenticationService {
   constructor(private angularFireAuth: AngularFireAuth) {
   }
 
+  loginWithFacebook(){
+    let provider = new firebase.auth.FacebookAuthProvider();
+    return this.angularFireAuth.auth.signInWithPopup(provider);
+  }
+
   loginWithEmail(email: string, password: string) {
     return this.angularFireAuth.auth.signInWithEmailAndPassword(email, password);
   }

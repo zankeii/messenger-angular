@@ -17,6 +17,18 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
+  loginWithFacebok(){
+    this.authenticationService.loginWithFacebook().then(
+      (data) => {
+        alert('Loguado Correctamente');
+        console.log(data);
+      }
+    ).catch((error) => {
+      alert('Ocurrio un error');
+      console.log(error);
+    });
+  }
+
   login() {
     this.authenticationService.loginWithEmail(this.email, this.password).then(
       (data) => {
