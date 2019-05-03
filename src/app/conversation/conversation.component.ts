@@ -17,6 +17,7 @@ export class ConversationComponent implements OnInit {
   conversation_id: string;
   textMessage: string;
   conversation: any[];
+  shake: boolean = false;
   constructor(private activatedRoute: ActivatedRoute, private userService: UserService,
               private conversationServices: ConversationService,
               private authenticationService: AuthenticationService) {
@@ -47,11 +48,34 @@ sendMessage(){
     timestamp: Date.now(),
     text: this.textMessage,
     sender: this.user.uid,
-    reciver: this.friend.uid
+    reciver: this.friend.uid,
+    type: 'text'
   }
   this.conversationServices.createConversation(message).then(() => {
     this.textMessage = '';
   });
+}
+
+sendZumbido(){
+  const message = {
+    uid: this.conversation_id ,
+    timestamp: Date.now(),
+    text: null,
+    sender: this.user.uid,
+    reciver: this.friend.uid,
+    type: 'zumbido'
+  }
+  this.conversationServices.createConversation(message).then(() => {});
+  this.doZumbido();
+}
+
+doZumbido() {
+  const audio = new Audio('assets/sound/zumbido.m4a');
+  audio.play();
+  this.shake = true;
+  window.setTimeout(() => {
+    this.shake = false;
+  }, 1000);
 }
 
 getConversation() {
@@ -61,10 +85,14 @@ getConversation() {
       if(!message.seen){
         message.seen = true;
         this.conversationServices.editConversation(message);
+        if(message.type == 'text'){
         const audio = new Audio('assets/sound/new_message.m4a');
         audio.play();
+      } else if(message.type == 'zumbido') {
+        this.doZumbido();
       }
-    })
+    }
+    });
     console.log(data);
   }, (error) => {
     console.log(error);
