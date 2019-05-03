@@ -1,53 +1,49 @@
 
-<div id="conversationContainer">
-	<div class="contPrinc pato45">
-		<div class="row">
-			<div class="col-xs-3 bg-grey marle-25">
-				<div class="avatarFrameOnline">
-					<img src="assets/img/generic_avatar.png"class="homeAvatarPicture img-fluid">
-				</div>
+<div class="conversationContainer bluewhitebg">
+    <div class="row">
+      <div class="col-sm-3 maxwi300">
+        <div id="conversationSidebar">
+          <div class="vh30">
+            <div class="avatarFrameOnline">
+              <img src="{{'assets/img/generic_avatar.png'}}" class="avatarImage img-fluid">
+            </div>
+          </div>
+          <div class="vh30"></div>
+          <div class="vh25">
+            <div class="avatarFrameOnline">
+              <img src="{{'assets/img/generic_avatar.png'}}" class="avatarImage img-fluid">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-9">
+        <br />
+        <span class="friendName">Amigo 1</span> (online)
+        <hr />
+        <div class="vh55 overscroll pabo10" id="messageArea">
+        </div>
+        <div class="messageControlsContainer">
+          <textarea [(ngModel)]="textMessage" (keyup.enter)="sendMessage()" class="form-control" cols="30" rows="5" ></textarea>
+          <div id="messageToolBar">
+            <div class="item">
+              <img src="assets/img/icons/regular_smile.gif" class="tool">
+              <i name="caret-down"></i>
+            </div>
+            <div class="item">
+              <img src="assets/img/icons/wink_smile.gif" class="tool">
+              <i name="caret-down"></i>
+            </div>
+            <div class="item" >
+              <img src="assets/img/zumbido.png" class="tool">
+            </div>
 
-				<div class="avatarFrameOnline marto250">
-					<img src="assets/img/generic_avatar.png"class="homeAvatarPicture img-fluid">
-				</div>
-
-			</div>
-			<div class="col">
-				<span><b>{{friend.nick}} {{friend.status}}</b></span>
-				<div class="container">
-					<div class="chatContainer marto15">
-						<div class="exampleChat">
-							<img class="img-fluid miniAvatar" src="assets/img/generic_avatar.png" alt="Avatar generico">
-							<p class="marle-25 badge badge-pill badge-primary">Hola, ¿como estas?</p>
-						</div>
-						<div class="exampleChat2 marto15">
-							<p class="badge badge-pill badge-light">Bien, aquí esforzandome por diseñar el chat :C <br> ¿y tu?</p>
-							<img class="img-fluid miniAvatar marle-25 marto" src="assets/img/generic_avatar.png" alt="Avatar generico">
-						</div>
-
-
-					</div>
-					<div class="bottomChat">
-						<input type="area"class="form-control areaChat"placeholder="Escribe un mensaje" name="">
-
-						<div class="marto15">
-
-							<img src="assets/img/zumbido.png"class="iconImage img-fluid">
-							<img src="assets/img/zumbido.png"class="iconImage img-fluid">
-              <img src="assets/img/zumbido.png"class="iconImage img-fluid">
-
-              <a class="btn btn-primary marde15">Send</a>
-
-							<label class="custom-file-upload">
-								<input type="file">
-								<i class="far fa-images"></i>
-								Seleccionar Imagen
-							</label>
-						</div>
-					</div>
-
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
+            <a class="btn btn-primary btn-sm marri10" accept="image/*">Enviar</a>
+            <label class="custom-file-upload">
+              <input type="file">
+              <i name="image"></i> Seleccionar Imagen
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
