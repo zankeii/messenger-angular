@@ -12,12 +12,25 @@ import { Router } from '@angular/router';
 export class HomeComponent implements OnInit {
   friends: User[];
   query: string = '';
+  user: User;
   constructor(private userService: UserService,
-              private autheticationService: AuthenticationService,
+              private authenticationService: AuthenticationService,
               private router: Router) {
     userService.getUsers().valueChanges().subscribe((data: User[]) => {
       this.friends = data;
     }, (error) => {
+      console.log(error);
+    });
+
+
+    this.authenticationService.getStatus().subscribe((status)=>{
+      this.userService.getUserById(status.uid).valueChanges().subscribe((data: User)=>{
+        this.user = data;
+        console.log(this.user);
+      }, (error)=>{
+        console.log(error);
+      })
+    }, (error)=> {
       console.log(error);
     });
   }
@@ -26,7 +39,7 @@ export class HomeComponent implements OnInit {
   }
 
   logOut() {
-    this.autheticationService.logOut().then(()=> {
+    this.authenticationService.logOut().then(()=> {
       alert('LogOut');
       this.router.navigate(['login']);
     }).catch((error)=>{

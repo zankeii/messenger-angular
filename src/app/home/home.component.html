@@ -7,10 +7,12 @@
             <img src="assets/img/generic_avatar.png" id="homeAvatarPicture">
           </div>
         </div>
-        <div class="col">
-          <b>Miguel</b>
+        <div class="col" *ngIf="user">
+          <b>{{user.nick}}</b>
           <div>
-            <span>Online</span>
+            <span>{{user.status}}</span>
+            <br>
+            <b>{{user.subnick}}</b>
             <br>
             <span>< Escribe un mensaje personal ></span><br>
             <a (click)="logOut()">LogOut</a>
