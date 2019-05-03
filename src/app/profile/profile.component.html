@@ -2,8 +2,8 @@
   <div class="container pato45">
     <div class="row">
       <div class="col-md-3">
-        <div class="avatarFrameOnline">
-          <img [src]="croppedImage" class="avatarImage img-fluid">
+        <div class="avatarFrameOnline" *ngIf="user">
+          <img [src]="croppedImage || user.avatar || 'assets/img/generic_avatar.png'" class="avatarImage img-fluid">
         </div>
         <hr>
         <div>
