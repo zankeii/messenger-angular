@@ -6,18 +6,21 @@
     </div>
     <div class="modal-body" style="height: auto">
       <div class="row">
-        <div class="col-md-auto">
-          <img src="assets/img/generic_avatar.png" class="img-fluid">
+        <div class="col-md-3">
+            <img [src]="userSend.avatar || 'assets/img/generic_avatar.png'" class="img-fluid avatarFrameOffline" id="homeAvatarPicture">
         </div>
-        <div class="col-md">
-          <b>{{currentRequest.sender}}</b>
+        <div class="col-md-9">
+          <b>{{userSend.nick}}</b><br>
           <small>Te ha Enviado esta Solicitud</small>
         </div>
         <hr>
+        <div class="col-md-12">
         <h4>Deseas Agregar a esta persona?</h4>
+        <br>
         <input type="radio" name="addToMsn" [(ngModel)]="shouldAdd" value="yes" id="add-yes"><label for="add-yes">Si quiero agregarlo!</label><br>
         <input type="radio" name="addToMsn" [(ngModel)]="shouldAdd" value="no" id="add-no"><label for="add-no">No quiero agregarlo!</label><br>
         <input type="radio" name="addToMsn" [(ngModel)]="shouldAdd" value="later" id="add-later"><label for="add-later">Agregar despues!</label><br>
+      </div>
       </div>
     </div>
     <div class="modal-footer">

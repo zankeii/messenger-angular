@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { DialogService, DialogComponent } from 'ng2-bootstrap-modal';
 import { UserService } from '../../services/user.service';
 import { RequestsService } from '../../services/requests.service';
+import { User } from '../../interfaces/user';
+import { AuthenticationService } from '../../services/authentication.service';
 
 export interface PromptModel {
   scope: any;
@@ -17,8 +19,10 @@ export class RequestComponent extends DialogComponent<PromptModel, any> implemen
   scope: any;
   currentRequest: any;
   shouldAdd: string = 'yes';
-  constructor(private requetsService: RequestsService, public dialogService: DialogService, private userService: UserService) {
+  userSend: User;
+  constructor(private requetsService: RequestsService, public dialogService: DialogService, private userService: UserService, private authenticationService: AuthenticationService) {
     super(dialogService);
+    this.ObtenerDatos();
   }
 
   accept(){
@@ -45,5 +49,21 @@ export class RequestComponent extends DialogComponent<PromptModel, any> implemen
       });
     }
   }
+
+  ObtenerDatos()
+{
+this.authenticationService.getStatus().subscribe((session)=>
+{
+ this.userService.getUserById(this.currentRequest.sender).valueChanges().subscribe((data:User)=>
+{
+      this.userSend=data;
+      console.log(this.userSend);
+    },(error)=>{
+      console.log(error);
+    });
+
+    });
+
+ }
 
 }

@@ -10,10 +10,10 @@
         <div class="col" *ngIf="user">
           <b>{{user.nick}}</b>
           <div>
-            <span>{{user.status}}</span>
-            <br>
-            <b>{{user.subnick}}</b>
-            <br>
+            <span *ngIf="user.status">{{user.status}}</span>
+            <br *ngIf="user.status">
+            <b *ngIf="user.subnick">{{user.subnick}}</b>
+            <br *ngIf="user.subnick">
             <span>< Escribe un mensaje personal ></span><br>
             <a (click)="logOut()">LogOut</a>
           </div>
@@ -34,7 +34,7 @@
       <b *ngIf="friends">Amigos ({{friends.length}} / {{friends.length}})</b>
       <div *ngFor="let user of friends | search: query; let i = index" class="disblo marbo5">
           <span routerLink="/conversation/{{user.uid}}">
-            <img src="assets/img/logo_live_{{user.status}}.png" alt="Logo de messinger" class="icon"><b>{{user.nick}}</b> - {{user.email}}
+            <img *ngIf="user.status" src="assets/img/logo_live_{{user.status}}.png" alt="Logo de messinger" class="icon"><b>{{user.nick}}</b> - {{user.email}}
           </span>
         </div>
   </div>
