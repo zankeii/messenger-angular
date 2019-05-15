@@ -15,7 +15,7 @@
             <b *ngIf="user.subnick">{{user.subnick}}</b>
             <br *ngIf="user.subnick">
             <span>< Escribe un mensaje personal ></span><br>
-            <a (click)="logOut()">LogOut</a>
+            <a (click)="logOut()" class="btn btn-light">LogOut</a>
           </div>
         </div>
       </div>
@@ -52,6 +52,10 @@
      <b>Ingrese Email de tu amigo</b>
      <input type="email" class="form-control" placeholder="email" [(ngModel)]="friendEmail" (keyup.enter)="sendRequest()">
    </div>
+    <div class="col-md-12">
+    <b>Enviale un mensaje a tu amigo</b>
+    <textarea [(ngModel)]="messageRequest"class="form-control"></textarea>
+  </div>
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-outline-dark" (click)="sendRequest()">Guardar</button>

@@ -20,6 +20,7 @@ export class RequestComponent extends DialogComponent<PromptModel, any> implemen
   currentRequest: any;
   shouldAdd: string = 'yes';
   userSend: User;
+  IsmodelShow: boolean = false;
   constructor(private requetsService: RequestsService, public dialogService: DialogService, private userService: UserService, private authenticationService: AuthenticationService) {
     super(dialogService);
     this.ObtenerDatos();
